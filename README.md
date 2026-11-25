@@ -1,4 +1,4 @@
-# Bayouland Creamery — bayoulanddairy.com
+# Bayouland Creamery — bayoulandcreamery.com
 
 The standalone website for **Bayouland Creamery**, a Bayouland Ag Enterprises farm in Crowley, LA.
 Sister site: [Bayou Bees](https://bayoubees.com).
@@ -8,7 +8,7 @@ index.html    → the whole site (story, shop, follow along, order form)
 styles.css    → design
 site.js       → menu, order cart, order form, share button, social links
 404.html      → "page not found" page
-CNAME         → tells GitHub Pages to serve this repo at bayoulanddairy.com
+CNAME         → tells GitHub Pages to serve this repo at bayoulandcreamery.com
 robots.txt / sitemap.xml → help Google find the site
 assets/       → logos, photos, social preview image (og-image.jpg), icons
 ```
@@ -21,9 +21,9 @@ No build step: edit the files on GitHub (pencil icon) and commit, and the site u
 **Settings → Pages →** *Build and deployment*: **Source = Deploy from a branch**, **Branch = main / (root)** → Save.
 The site goes live at `https://cordercrew.github.io/bayouland-creamery/` first.
 
-## 2. Connect bayoulanddairy.com
-1. **Verify the domain first** (protects it from being hijacked): your GitHub profile picture → **Settings → Pages → Add a domain**, enter `bayoulanddairy.com`, and add the TXT record GitHub shows you at your domain registrar.
-2. In this repo: **Settings → Pages → Custom domain** → `bayoulanddairy.com` → Save. (The `CNAME` file is already here.)
+## 2. Connect bayoulandcreamery.com
+1. **Verify the domain first** (protects it from being hijacked): your GitHub profile picture → **Settings → Pages → Add a domain**, enter `bayoulandcreamery.com`, and add the TXT record GitHub shows you at your domain registrar.
+2. In this repo: **Settings → Pages → Custom domain** → `bayoulandcreamery.com` → Save. (The `CNAME` file is already here.)
 3. At your domain registrar, add these DNS records (delete any old A/CNAME records for `@` and `www` first):
 
 ```
@@ -39,13 +39,13 @@ CNAME  www  cordercrew.github.io
 Until this is set up, **Send order request** opens the customer's email app with the order filled in, so nothing is broken in the meantime.
 1. Sign up at **formspree.io** (free tier is fine) and create a form named "Bayouland Creamery orders". You'll get an address like `https://formspree.io/f/abcdwxyz`.
 2. In `index.html`, find `data-endpoint="https://formspree.io/f/YOUR_FORM_ID"` and paste your address in.
-3. On the same line, make sure `data-fallback-email="orders@bayoulanddairy.com"` is an inbox you actually check.
+3. On the same line, make sure `data-fallback-email="orders@bayoulandcreamery.com"` is an inbox you actually check.
 
 ## 4. Social media
 - **Your page links:** in `index.html`, search for `YOUR_` and replace with your real Facebook / Instagram / TikTok addresses. Any link left as `YOUR_…` stays hidden automatically, so fill in only the ones you use.
-- **Link previews:** when someone posts bayoulanddairy.com on Facebook or texts it, it shows `assets/og-image.jpg` with your logo and tagline. After the domain is live, paste the URL into Facebook's **Sharing Debugger** (developers.facebook.com/tools/debug) and click *Scrape Again* to make Facebook pick it up.
+- **Link previews:** when someone posts bayoulandcreamery.com on Facebook or texts it, it shows `assets/og-image.jpg` with your logo and tagline. After the domain is live, paste the URL into Facebook's **Sharing Debugger** (developers.facebook.com/tools/debug) and click *Scrape Again* to make Facebook pick it up.
 - **Share buttons:** the "Follow along" section has a *Share this page* button (opens the phone's share sheet or copies the link) and a *Share on Facebook* button.
-- **Google:** add the site to **Google Search Console** and submit `https://bayoulanddairy.com/sitemap.xml`. Setting up a free **Google Business Profile** for Bayouland Creamery is the biggest single boost for "fresh milk near Crowley" searches.
+- **Google:** add the site to **Google Search Console** and submit `https://bayoulandcreamery.com/sitemap.xml`. Setting up a free **Google Business Profile** for Bayouland Creamery is the biggest single boost for "fresh milk near Crowley" searches.
 
 ## 5. Everyday edits
 - **Prices:** search `index.html` for `price on request` and replace the whole `<span class="ph">…</span>` with the number, e.g. `$<span>14</span>`.
