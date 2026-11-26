@@ -332,3 +332,5 @@ p:last-child{ margin-bottom:0; }
 .band .prod h3{ color:var(--ink); }
 .brand b{ white-space:nowrap; }
 @media (max-width: 520px){ .brand .tag{ display:none; } }
+.summary li .amt{ margin-left:auto; padding-right:.8rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.summary li.total{ font-weight:700; border-bottom:0; border-top:1px solid rgba(239,233,217,.35); margin-top:.3rem; padding-top:.7rem; }

@@ -62,6 +62,8 @@
     return e ? e.textContent : "No items yet — add something above.";
   })();
 
+  function money(n) { return "$" + n.toFixed(2); }
+
   function renderCart() {
     var list = document.getElementById("summary-list");
     var hidden = document.getElementById("order-items");
@@ -75,14 +77,24 @@
     }
     var html = "";
     var lines = [];
+    var total = 0, unpriced = false;
     keys.forEach(function (k) {
       var it = cart[k];
       var label = it.qty + " × " + it.name + (it.unit ? " (" + it.unit + ")" : "");
+      var line = "";
+      if (it.price) { line = money(it.price * it.qty); total += it.price * it.qty; }
+      else { unpriced = true; }
       html +=
         '<li><span>' + label + "</span>" +
+        (line ? '<span class="amt">' + line + "</span>" : "") +
         '<span class="x" data-remove="' + k + '" title="Remove" role="button" tabindex="0">✕</span></li>';
-      lines.push(label);
+      lines.push(label + (line ? " — " + line : ""));
     });
+    if (total > 0) {
+      var tl = "Estimated total: " + money(total) + (unpriced ? " + seasonal items" : "");
+      html += '<li class="total"><span>' + tl + "</span></li>";
+      lines.push(tl);
+    }
     list.innerHTML = html;
     if (hidden) hidden.value = lines.join("\n");
 
@@ -107,10 +119,11 @@
     var key = wrap.getAttribute("data-product");
     var name = wrap.getAttribute("data-name") || key;
     var unit = wrap.getAttribute("data-unit") || "";
+    var price = parseFloat(wrap.getAttribute("data-price")) || 0;
     val = Math.max(0, Math.min(99, val | 0));
     var input = wrap.querySelector("input");
     if (input) input.value = val;
-    cart[key] = { name: name, unit: unit, qty: val };
+    cart[key] = { name: name, unit: unit, price: price, qty: val };
     renderCart();
   }
 
